@@ -17,10 +17,10 @@ mongoose.connection.once('open',()=>{
 })
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
-app.use(express.static(path.join(__dirname,'dist')))
+app.use(express.static(path.join(__dirname,'build')))
 app.use('/api',invoice)
 app.use('*',(req,res)=>{
-    res.sendFile(path.join(__dirname,'dist/invoice.html'))
+    res.sendFile(path.join(__dirname,'build/invoice.html'))
 })
 app.listen(3000,()=>{
     console.log('Server listening to port 3000')
